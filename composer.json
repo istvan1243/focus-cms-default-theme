@@ -1,8 +1,19 @@
 {
-    "name": "istvan/focus-default-theme",
+    "name": "istvan/FocusDefaultTheme",
     "type": "focus-theme",
     "description": "A default focus theme for Laravel.",
     "require": {
         "php": "^8.0"
+    },
+    "autoload": {
+       "psr-4": {
+           "Themes\\FocusDefaultTheme\\": "Classes/"
+           }
+    },
+    "extra": {
+    "laravel": {
+        "dont-discover": []
     }
+}
+
 }
