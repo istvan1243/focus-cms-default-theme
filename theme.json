@@ -1,0 +1,7 @@
+{
+    "title": "Focus Default Theme",
+    "name": "FocusDefaultTheme",
+    "sidebars": [
+        "top-sidebar", "bottom-sidebar"
+    ]
+}
