@@ -15,6 +15,7 @@ class ThemeServiceProvider extends ServiceProvider
     public function register(): void
     {
         // Ha szükséges, ide kerülhet bármilyen más regisztrációs logika
+
     }
 
     /**
@@ -22,6 +23,7 @@ class ThemeServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
         // Aktuális téma lekérése az adatbázisból
         $option = Option::find('currentThemeName');
         $currentThemeName = $option ? $option->value : 'FocusDefaultTheme';
