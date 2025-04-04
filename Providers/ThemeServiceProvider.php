@@ -24,20 +24,60 @@ class ThemeServiceProvider extends ServiceProvider
     public function boot(): void
     {
 
-        // Aktuális téma lekérése az adatbázisból
+        $currentThemeName = $this->getCurrentThemeName();
+        $this->registerThemeViews($currentThemeName);
+        $this->registerThemeComponents();
+    }
+
+    /**
+     * Method getCurrentThemeName
+     *
+     * @return string
+     */
+    protected function getCurrentThemeName(): string
+    {
         $option = Option::find('currentThemeName');
-        $currentThemeName = $option ? $option->value : 'FocusDefaultTheme';
+        return $option ? $option->value : 'FocusDefaultTheme';
+    }
 
-        // A nézetek helyes útvonalának regisztrálása
-        $themePath = base_path("Themes/{$currentThemeName}/resources/views");
+    /**
+     * Method registerThemeViews
+     *
+     * @param string $themeName [explicite description]
+     *
+     * @return void
+     */
+    protected function registerThemeViews(string $themeName): void
+    {
+        $themePath = base_path("Themes/{$themeName}/resources/views");
 
-        // Laravel számára regisztráljuk a nézetek elérési útját
+        // Hibakezelés hozzáadása
+        if (!file_exists($themePath)) {
+            throw new \RuntimeException("Theme views directory not found: {$themePath}");
+        }
+
         $this->loadViewsFrom($themePath, 'theme');
-
-        // Nézet névtér hozzáadása
         View::addNamespace('theme', $themePath);
+    }
 
-        // Blade komponensek regisztrálása
-        Blade::component(\Themes\FocusDefaultTheme\Classes\Layouts\Components\PublicDefault::class, 'public-default');
+    /**
+     * Method registerThemeComponents
+     *
+     * @return void
+     */
+    protected function registerThemeComponents(): void
+    {
+        // Komponensek regisztrációja közvetlenül a saját névterükkel
+        $components = [
+            \Themes\FocusDefaultTheme\Classes\Components\Post::class => 'post',
+            \Themes\FocusDefaultTheme\Classes\Layouts\Components\PublicDefault::class => 'public-default'
+        ];
+
+        foreach ($components as $class => $tag) {
+            if (!class_exists($class)) {
+                throw new \RuntimeException("Component class not found: {$class}");
+            }
+            Blade::component($class, $tag);
+        }
     }
 }
