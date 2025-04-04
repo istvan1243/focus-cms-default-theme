@@ -1,0 +1,13 @@
+{
+  "Themes/FocusDefaultTheme/public/css/theme.css": {
+    "file": "build/css/theme-FocusDefaultTheme-theme-BwtdkUSv.css",
+    "src": "Themes/FocusDefaultTheme/public/css/theme.css",
+    "isEntry": true
+  },
+  "Themes/FocusDefaultTheme/public/js/theme.js": {
+    "file": "build/assets/theme-FocusDefaultTheme-theme-DddnH_-M.js",
+    "name": "theme",
+    "src": "Themes/FocusDefaultTheme/public/js/theme.js",
+    "isEntry": true
+  }
+}

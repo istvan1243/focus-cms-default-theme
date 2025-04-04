@@ -1,6 +1,23 @@
+@php
+    $viteIsActive = check_theme_vite_is_active();
+
+    if( $viteIsActive == true) {
+        $theme_vite_data = theme_vite_assets($currentTheme);
+    } else {
+        $theme_vite_data = theme_vite_assets_builded($currentTheme);
+    }
+
+    $viteAssets = [
+        'resources/css/app.css',
+        'resources/css/style.css',
+        'resources/js/app.js',
+    ];
+
+    $viteAssets = $viteIsActive ? array_merge($viteAssets, $theme_vite_data) : $viteAssets;
+@endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
+<head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -15,15 +32,12 @@
 
         <!-- Scripts -->
 
-        @php
-            $viteAssets = [
-                'resources/css/app.css',
-                'resources/css/style.css',
-                'resources/js/app.js',
-            ];
-        @endphp
-
         @vite($viteAssets)
+
+        @if( $viteIsActive == false)
+            <link rel="stylesheet" href="{{ asset($theme_vite_data['css']) }}" rel="stylesheet" />
+            <script type="module" src="{{ asset($theme_vite_data['js']) }}"></script>
+        @endif
 
         <script type="module" src="{{ asset('assets/prism.js/prism.js') }}"></script>
 
