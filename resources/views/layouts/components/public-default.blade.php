@@ -2,17 +2,18 @@
     $viteIsActive = check_theme_vite_is_active();
 
     if( $viteIsActive == true) {
-       // $theme_vite_data = theme_vite_assets($currentTheme);
+        $viteAssets = [
+            "Themes/{$currentTheme}/public/js/theme.js",
+            "resources/css/theme-{$currentTheme}-app.css"
+        ];
     } else {
-      //  $theme_vite_data = theme_vite_assets_builded($currentTheme);
+        $themeManifestPath = public_path("themepublic/build/manifest.json");
+        $manifest = json_decode(file_get_contents($themeManifestPath), true);
+        $theme_vite_data = [
+            "js" => "themepublic/build/".$manifest["Themes/{$currentTheme}/public/js/theme.js"]['file'] ?? '',
+            "css" => "themepublic/build/".$manifest["resources/css/theme-{$currentTheme}-app.css"]['file'] ?? ''
+        ];
     }
-
-    $viteAssets = [
-        "resources/js/theme-{$currentTheme}-app.js",
-        "Themes/{$currentTheme}/public/js/theme.js",
-        "resources/css/theme-{$currentTheme}-app.css"
-    ];
-   // $viteAssets = $viteIsActive ? array_merge($theme_vite_data, $viteAssets) : $viteAssets;
 
     $isMinimalView = !empty($isMinimalViewFromController) ? $isMinimalViewFromController : request()->has('minimal');
 @endphp
@@ -31,15 +32,19 @@
         <link rel="stylesheet" href="{{ asset('assets/fontawesome/css/all.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('assets/prism.js/prism.css') }}" />
 
-        <style>@import "tailwindcss";</style>
+
         <!-- Scripts -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <script type="module" src="//unpkg.com/alpinejs" defer></script>
+        <script type="module" src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script type="module" src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
 
-        @vite($viteAssets)
 
-        @if( $viteIsActive == false && false)
+        @if( $viteIsActive == false)
             <link rel="stylesheet" href="{{ asset($theme_vite_data['css']) }}" rel="stylesheet" />
-            <script type="module" src="{{ asset($theme_vite_data['js_1']) }}"></script>
-            <script type="module" src="{{ asset($theme_vite_data['js_2']) }}"></script>
+            <script type="module" src="{{ asset($theme_vite_data['js']) }}"></script>
+        @else
+            @vite($viteAssets)
         @endif
 
         <script type="module" src="{{ asset('assets/prism.js/prism.js') }}"></script>
