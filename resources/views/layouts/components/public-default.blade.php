@@ -56,7 +56,6 @@
         @stack('head_scripts')
 
         @stack('my-styles')
-
     </head>
     <body class="bg-gray-100">
 
@@ -81,21 +80,22 @@
 
         <!-- Fő tartalom -->
         <main id="content" class="container my-4 mx-auto p-4">
-            <div id="twteszt-2">TW TESZT 2</div>
+            <div id="twteszt-2">
+                <p>TW TESZT 2</p><br><br>
+                <button id="jqueryTeszt" class="px-4 py-2 bg-blue-500 text-white rounded">jQuery Teszt</button><br><br>
+                <div x-data="{ open: false }" x-cloak>
+                    <button @click="open = !open" class="px-4 py-2 bg-blue-500 text-white rounded">
+                    <span x-show="!open">Mutasd</span>
+                    <span x-show="open">Rejtsd</span>
+                    </button>
+
+                    <p x-show="open" class="mt-4 p-4 bg-gray-700 rounded">
+                        Ez egy egyszerű Alpine.js példa!
+                    </p>
+                </div>
+            </div>
             {{ $slot }}
         </main>
-
-
-        <div x-data="{ open: false }" x-cloak>
-    <button @click="open = !open" class="px-4 py-2 bg-blue-500 text-white rounded">
-      <span x-show="!open">Mutasd</span>
-      <span x-show="open">Rejtsd</span>
-    </button>
-
-    <p x-show="open" class="mt-4 p-4 bg-gray-100 rounded">
-      Ez egy egyszerű Alpine.js példa!
-    </p>
-  </div>
 
         <!-- Lábléc -->
         @if($isMinimalView == false)

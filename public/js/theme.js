@@ -7,7 +7,7 @@ console.log("Focus Default Theme JS");
 
 
 $(function(){
-    $("#content").click(function(){
+    $("#jqueryTeszt").click(function(){
         alert("OK");
     });
 })
