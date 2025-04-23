@@ -31,7 +31,7 @@
         <link rel="stylesheet" href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" />
         <link rel="stylesheet" href="{{ asset('assets/fontawesome/css/all.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('assets/prism.js/prism.css') }}" />
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
 
         <!-- Scripts -->
         <style>
@@ -40,13 +40,13 @@
 
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-        <script type="module" src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
-        <script type="module" src="{{ asset('assets/prism.js/prism.js') }}"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+        <script defer src="{{ asset('assets/prism.js/prism.js') }}"></script>
 
 
         @if( $viteIsActive == false)
             <link rel="stylesheet" href="{{ asset($theme_vite_data['css']) }}" rel="stylesheet" />
-            <script type="module" src="{{ asset($theme_vite_data['js']) }}"></script>
+            <script defer src="{{ asset($theme_vite_data['js']) }}"></script>
         @else
             @vite($viteAssets)
         @endif
