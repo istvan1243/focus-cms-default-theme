@@ -24,7 +24,6 @@ class Post extends Component
      */
     public function __construct($post)
     {
-        $post->content = markdownToHtml($post->content);
         $this->post = $post;
     }
 

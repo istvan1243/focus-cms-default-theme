@@ -2,6 +2,7 @@
 
 namespace Themes\FocusDefaultTheme\Providers;
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Option;
@@ -23,10 +24,12 @@ class ThemeServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if (Schema::hasTable('options')) {
 
-        $currentThemeName = $this->getCurrentThemeName();
-        $this->registerThemeViews($currentThemeName);
-        $this->registerThemeComponents();
+            $currentThemeName = $this->getCurrentThemeName();
+            $this->registerThemeViews($currentThemeName);
+            $this->registerThemeComponents();
+        }
     }
 
     /**
@@ -70,7 +73,8 @@ class ThemeServiceProvider extends ServiceProvider
         // Komponensek regisztrációja közvetlenül a saját névterükkel
         $components = [
             \Themes\FocusDefaultTheme\Classes\Components\Post::class => 'post',
-            \Themes\FocusDefaultTheme\Classes\Layouts\Components\PublicDefault::class => 'public-default'
+            \Themes\FocusDefaultTheme\Classes\Layouts\Components\PublicDefault::class => 'public-default',
+            \Themes\FocusDefaultTheme\Classes\Layouts\Components\MaintenanceDefault::class => 'maintenance-default'
         ];
 
         foreach ($components as $class => $tag) {

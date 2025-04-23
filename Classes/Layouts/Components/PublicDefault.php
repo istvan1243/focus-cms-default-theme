@@ -4,6 +4,7 @@ namespace Themes\FocusDefaultTheme\Classes\Layouts\Components;
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
+use App\Models\Option;
 
 class PublicDefault extends Component
 {
@@ -13,6 +14,10 @@ class PublicDefault extends Component
      * @var mixed
      */
     public $currentTheme;
+    public null|string $isMinimalViewFromController;
+    public null|string $topSidebarContent;
+    public null|string $bottomSidebarContent;
+    public null|string $rightSidebarContent;
 
 
     /**
@@ -22,9 +27,21 @@ class PublicDefault extends Component
      *
      * @return void
      */
-    public function __construct($currentTheme = null)
+    public function __construct($isMinimalViewFromController = null)
     {
-        $this->currentTheme = $currentTheme;
+        $this->currentTheme = app('options.repository')->get('currentThemeName', 'FocusDefaultTheme');
+        $this->isMinimalViewFromController = $isMinimalViewFromController;
+
+        $topNavContent = Option::find("ts_FocusDefaultTheme_top-nav_content");
+        $topSidebarContent = Option::find("ts_FocusDefaultTheme_top-sidebar_content");
+        $bottomSidebarContent = Option::find("ts_FocusDefaultTheme_bottom-sidebar_content");
+        $rightSidebarContent = Option::find("ts_FocusDefaultTheme_right-sidebar_content");
+
+        $this->topNavContent = empty($topNavContent) ? null : (markdownToHtml($topNavContent->value));
+        $this->topSidebarContent = empty($topSidebarContent) ? null : (markdownToHtml($topSidebarContent->value));
+        $this->bottomSidebarContent = empty($bottomSidebarContent) ? null : markdownToHtml($bottomSidebarContent->value);
+        $this->rightSidebarContent = empty($rightSidebarContent) ? null : markdownToHtml($rightSidebarContent->value);
+
     }
 
     /**
@@ -34,29 +51,13 @@ class PublicDefault extends Component
      */
     public function render(): View
     {
-        $footerSidebar1 = $this->getSampleWidgets();
-        $footerSidebar2 = $this->getSampleWidgets();
-        $footerSidebar3 = $this->getSampleWidgets();
-
         return view('theme::layouts.components.public-default', [
             'currentTheme'  => $this->currentTheme,
-            'footerSidebar1' => $footerSidebar1,
-            'footerSidebar2' => $footerSidebar2,
-            'footerSidebar3' => $footerSidebar3,
+            'isMinimalViewFromController' => $this->isMinimalViewFromController,
+            'topNavContent' => $this->topNavContent,
+            'topSidebarContent' => $this->topSidebarContent,
+            'bottomSidebarContent' => $this->bottomSidebarContent,
+            'rightSidebarContent' => $this->rightSidebarContent,
         ]);
-    }
-
-    /**
-     * Method getSampleWidgets
-     *
-     * @return void
-     */
-    private function getSampleWidgets()
-    {
-        return [
-            ["title" => "Widget 1", "content" => "Ez egy minta widget tartalma."],
-            ["title" => "Widget 2", "content" => "Egy másik widget tartalma."],
-            ["title" => "Widget 3", "content" => "Még egy widget példaként."],
-        ];
     }
 }

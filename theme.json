@@ -2,6 +2,6 @@
     "title": "Focus Default Theme",
     "name": "FocusDefaultTheme",
     "sidebars": [
-        "top-sidebar", "bottom-sidebar", "right-sidebar"
+        "top-nav", "top-sidebar", "bottom-sidebar", "right-sidebar", "maintenance"
     ]
 }

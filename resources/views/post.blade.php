@@ -1,5 +1,5 @@
 <x-public-default
-    :currentTheme="$currentTheme"
+    :isMinimalViewFromController="($isMinimalViewFromController ?? null)"
 >
     <x-post :post="$post" />
 </x-public-default>
