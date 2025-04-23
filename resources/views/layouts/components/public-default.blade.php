@@ -31,13 +31,17 @@
         <link rel="stylesheet" href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" />
         <link rel="stylesheet" href="{{ asset('assets/fontawesome/css/all.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('assets/prism.js/prism.css') }}" />
-
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
         <!-- Scripts -->
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <script type="module" src="//unpkg.com/alpinejs" defer></script>
-        <script type="module" src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <style>
+            [x-cloak] { display: none !important; }
+        </style>
+
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script type="module" src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+        <script type="module" src="{{ asset('assets/prism.js/prism.js') }}"></script>
 
 
         @if( $viteIsActive == false)
@@ -46,8 +50,6 @@
         @else
             @vite($viteAssets)
         @endif
-
-        <script type="module" src="{{ asset('assets/prism.js/prism.js') }}"></script>
 
 
         <!-- Head scripts -->
@@ -82,6 +84,18 @@
             <div id="twteszt-2">TW TESZT 2</div>
             {{ $slot }}
         </main>
+
+
+        <div x-data="{ open: false }" x-cloak>
+    <button @click="open = !open" class="px-4 py-2 bg-blue-500 text-white rounded">
+      <span x-show="!open">Mutasd</span>
+      <span x-show="open">Rejtsd</span>
+    </button>
+
+    <p x-show="open" class="mt-4 p-4 bg-gray-100 rounded">
+      Ez egy egyszerű Alpine.js példa!
+    </p>
+  </div>
 
         <!-- Lábléc -->
         @if($isMinimalView == false)

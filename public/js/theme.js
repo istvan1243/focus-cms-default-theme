@@ -4,8 +4,10 @@
 
 console.log("Focus Default Theme JS");
 
+
+
 $(function(){
-    $(window).click(function(){
+    $("#content").click(function(){
         alert("OK");
     });
 })

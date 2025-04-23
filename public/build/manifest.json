@@ -1,6 +1,6 @@
 {
   "Themes/FocusDefaultTheme/public/js/theme.js": {
-    "file": "assets/theme-CSeIdVvJ.js",
+    "file": "assets/theme-AXYyVacA.js",
     "name": "theme",
     "src": "Themes/FocusDefaultTheme/public/js/theme.js",
     "isEntry": true
@@ -30,7 +30,7 @@
     "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
   },
   "resources/css/app.css": {
-    "file": "css/app-L8wUY6MA.css",
+    "file": "css/app-VW3I2GcH.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -40,7 +40,7 @@
     "isEntry": true
   },
   "resources/css/theme-FocusDefaultTheme-app.css": {
-    "file": "css/theme-FocusDefaultTheme-app-CYDuJiL3.css",
+    "file": "css/theme-FocusDefaultTheme-app-DKRO8Ceo.css",
     "src": "resources/css/theme-FocusDefaultTheme-app.css",
     "isEntry": true
   },
