@@ -1,19 +1,11 @@
 @php
     $viteIsActive = check_theme_vite_is_active();
 
-    if( $viteIsActive == true) {
-        $theme_vite_data = theme_vite_assets($currentTheme);
-    } else {
-        $theme_vite_data = theme_vite_assets_builded($currentTheme);
-    }
-
     $viteAssets = [
-        'resources/css/app.css',
-        'resources/css/style.css',
-        'resources/js/app.js',
+        "resources/js/theme-{$currentTheme}-app.js",
+        "Themes/{$currentTheme}/public/js/theme.js",
+        "resources/css/theme-{$currentTheme}-app.css"
     ];
-
-    $viteAssets = $viteIsActive ? array_merge($viteAssets, $theme_vite_data) : $viteAssets;
 @endphp
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -34,7 +26,7 @@
 
         @vite($viteAssets)
 
-        @if( $viteIsActive == false)
+        @if( $viteIsActive == false && false)
             <link rel="stylesheet" href="{{ asset($theme_vite_data['css']) }}" rel="stylesheet" />
             <script type="module" src="{{ asset($theme_vite_data['js']) }}"></script>
         @endif
