@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use App\Models\Option;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Lang;
+
 
 class ThemeServiceProvider extends ServiceProvider
 {
@@ -30,6 +32,7 @@ class ThemeServiceProvider extends ServiceProvider
             $this->registerThemeViews($currentThemeName);
             $this->registerThemeComponents();
             $this->registerThemeConfig();
+            $this->registerThemeLang();
         }
     }
 
@@ -108,4 +111,22 @@ class ThemeServiceProvider extends ServiceProvider
         }
     }
 
+    protected function registerThemeLang(): void
+    {
+        $themeName = $this->getCurrentThemeName();
+        $langPath = base_path("Themes/{$themeName}/resources/lang");
+
+        if (file_exists($langPath)) {
+            // 1. Nyelvi fájlok betöltése a standard Laravel lang helper számára
+            $this->loadTranslationsFrom($langPath, 'theme');
+
+            // 2. Alternatív névtér hozzáadása a Lang facade számára
+            Lang::addNamespace('theme', $langPath);
+
+            // 3. Publikálás (ha szükséges)
+            $this->publishes([
+                $langPath => resource_path('lang/vendor/'.$themeName),
+            ], 'theme-lang');
+        }
+    }
 }

@@ -15,9 +15,7 @@ class PublicDefault extends Component
      */
     public $currentTheme;
     public null|string $isMinimalViewFromController;
-    public null|string $topSidebarContent;
-    public null|string $bottomSidebarContent;
-    public null|string $rightSidebarContent;
+    public null|array $sidebars;
 
 
     /**
@@ -32,16 +30,20 @@ class PublicDefault extends Component
         $this->currentTheme = app('options.repository')->get('currentThemeName', 'FocusDefaultTheme');
         $this->isMinimalViewFromController = $isMinimalViewFromController;
 
-        $topNavContent = Option::find("ts_FocusDefaultTheme_top-nav_content");
-        $topSidebarContent = Option::find("ts_FocusDefaultTheme_top-sidebar_content");
-        $bottomSidebarContent = Option::find("ts_FocusDefaultTheme_bottom-sidebar_content");
-        $rightSidebarContent = Option::find("ts_FocusDefaultTheme_right-sidebar_content");
+        $sidebars = Option::where('name', 'like', "ts_{$this->currentTheme}_sidebar_%")
+            ->get()
+            ->pluck('value', 'name')
+            ->toArray();
 
-        $this->topNavContent = empty($topNavContent) ? null : (markdownToHtml($topNavContent->value));
-        $this->topSidebarContent = empty($topSidebarContent) ? null : (markdownToHtml($topSidebarContent->value));
-        $this->bottomSidebarContent = empty($bottomSidebarContent) ? null : markdownToHtml($bottomSidebarContent->value);
-        $this->rightSidebarContent = empty($rightSidebarContent) ? null : markdownToHtml($rightSidebarContent->value);
+        $sidebarsRendered = [];
 
+        if (!empty($sidebars)) {
+            foreach ($sidebars as $key => &$val) {
+                $val = empty($val) ? null : markdownToHtml($val);
+            }
+        }
+
+        $this->sidebars = $sidebars;
     }
 
     /**
@@ -54,10 +56,7 @@ class PublicDefault extends Component
         return view('theme::layouts.components.public-default', [
             'currentTheme'  => $this->currentTheme,
             'isMinimalViewFromController' => $this->isMinimalViewFromController,
-            'topNavContent' => $this->topNavContent,
-            'topSidebarContent' => $this->topSidebarContent,
-            'bottomSidebarContent' => $this->bottomSidebarContent,
-            'rightSidebarContent' => $this->rightSidebarContent,
+            'sidebars' => $this->sidebars,
         ]);
     }
 }

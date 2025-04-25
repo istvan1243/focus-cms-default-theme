@@ -28,7 +28,7 @@ class MaintenanceDefault extends Component
     {
         $this->currentTheme = app('options.repository')->get('currentThemeName', 'FocusDefaultTheme');
 
-        $maintenanceSidebarContent = Option::find("ts_FocusDefaultTheme_maintenance_content");
+        $maintenanceSidebarContent = Option::find("ts_FocusDefaultTheme_sidebar_maintenance");
 
         $this->maintenanceSidebarContent = empty($maintenanceSidebarContent) ? null : (markdownToHtml($maintenanceSidebarContent->value));
     }

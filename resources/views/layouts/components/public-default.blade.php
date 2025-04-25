@@ -61,20 +61,8 @@
 
         @if($isMinimalView == false)
             <!-- Fejléc -->
-            <header id="header" class="bg-white shadow">
-                <nav id="top-nav" class="container mx-auto p-4 flex items-center justify-between">
-                    <!-- Bal oldal: Logo és oldal cím -->
-                    <div class="flex items-center">
-                        <svg class="h-8 w-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                        </svg>
-                        <span class="ml-2 text-xl font-bold">Oldal Címe</span>
-                    </div>
-
-                    <!-- Jobb oldal: Navigációs linkek -->
-                    <div class="flex space-x-4">
-                        {!! $topNavContent !!}
-                </nav>
+            <header id="header" class=" bg-white shadow">
+                {!! $sidebars['ts_FocusDefaultTheme_sidebar_top_nav'] !!}
             </header>
         @endif
 
@@ -105,17 +93,17 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div>
                             <div class="bg-gray-700 p-4 rounded-lg">
-                                {!! $topSidebarContent !!}
+                                {!! $sidebars['ts_FocusDefaultTheme_sidebar_bottom_1'] !!}
                             </div>
                         </div>
                         <div>
                             <div class="bg-gray-700 p-4 rounded-lg">
-                                {!! $bottomSidebarContent !!}
+                                {!! $sidebars['ts_FocusDefaultTheme_sidebar_bottom_2'] !!}
                             </div>
                         </div>
                         <div>
                             <div class="bg-gray-700 p-4 rounded-lg">
-                                {!! $rightSidebarContent !!}
+                                {!! $sidebars['ts_FocusDefaultTheme_sidebar_bottom_3'] !!}
                             </div>
                         </div>
                     </div>
