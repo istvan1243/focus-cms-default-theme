@@ -29,6 +29,7 @@ class ThemeServiceProvider extends ServiceProvider
             $currentThemeName = $this->getCurrentThemeName();
             $this->registerThemeViews($currentThemeName);
             $this->registerThemeComponents();
+            $this->registerThemeConfig();
         }
     }
 
@@ -84,4 +85,27 @@ class ThemeServiceProvider extends ServiceProvider
             Blade::component($class, $tag);
         }
     }
+
+    /**
+     * Method registerThemeConfig
+     *
+     * @return void
+     */
+    protected function registerThemeConfig(): void
+    {
+        $themeName = $this->getCurrentThemeName();
+        $configPath = base_path("Themes/{$themeName}/config");
+
+        // Ha létezik a config mappa
+        if (file_exists($configPath)) {
+            // Összes config fájl betöltése
+            $configFiles = glob($configPath.'/*.php');
+
+            foreach ($configFiles as $configFile) {
+                $key = pathinfo($configFile, PATHINFO_FILENAME);
+                $this->mergeConfigFrom($configFile, "theme.{$key}");
+            }
+        }
+    }
+
 }

@@ -4,4 +4,5 @@ clear
 
 git add .
 git commit -m "null"
-git push
+git push origin main
+
