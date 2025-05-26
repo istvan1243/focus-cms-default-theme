@@ -3,12 +3,12 @@
 }
 
 .sidebar-widget-head {
-    @apply my-1 text-2xl uppercase;
+    @apply my-1 mb-2 text-2xl uppercase;
 }
 
 .sidebar-widget-content,
 .sidebar-widget-content p {
-    @apply py-2 text-black text-base;
+    @apply mb-2 text-black text-base;
 }
 
 .top-menu-item {
