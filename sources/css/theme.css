@@ -29,3 +29,7 @@
 #twteszt-2 {
     @apply bg-blue-900 text-white p-10;
 }
+
+p {
+    @apply my-2 !important;
+}

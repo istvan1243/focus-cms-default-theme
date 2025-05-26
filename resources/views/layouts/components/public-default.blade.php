@@ -58,7 +58,7 @@
 
         @stack('my-styles')
     </head>
-    <body class="bg-white min-h-screen flex flex-col" data-url-last-segment="{{ request()->segment(count(request()->segments())) }}">
+    <body class="bg-white min-h-screen flex flex-col">
         @if($isMinimalView == false)
             <!-- Fejléc -->
             <header id="header" class="w-full  max-w-[1160px] mx-auto p-4">
@@ -67,8 +67,10 @@
         @endif
 
         <!-- Fő tartalom -->
-        <main id="content" class="w-full max-w-[1160px] flex-grow mx-auto p-2 shadow-lg ">
-            {{ $slot }}
+        <main id="content" class="w-full bg-gray-200 py-16">
+            <div class="py-10 px-6 bg-white lg:px-8 w-full max-w-[1160px] flex-grow mx-auto p-2 shadow-xl">
+                {{ $slot }}
+            </div>
         </main>
 
         <!-- Lábléc -->
