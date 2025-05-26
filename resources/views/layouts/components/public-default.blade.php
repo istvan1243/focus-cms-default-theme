@@ -17,6 +17,7 @@
 
     $isMinimalView = !empty($isMinimalViewFromController) ? $isMinimalViewFromController : request()->has('minimal');
 @endphp
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -57,63 +58,50 @@
 
         @stack('my-styles')
     </head>
-    <body class="bg-gray-100">
-
+    <body class="bg-white min-h-screen flex flex-col" data-url-last-segment="{{ request()->segment(count(request()->segments())) }}">
         @if($isMinimalView == false)
             <!-- Fejléc -->
-            <header id="header" class=" bg-white shadow">
+            <header id="header" class="w-full  max-w-[1160px] mx-auto p-4">
                 {!! $sidebars['ts_FocusDefaultTheme_sidebar_top_nav'] !!}
             </header>
         @endif
 
         <!-- Fő tartalom -->
-        <main id="content" class="container my-4 mx-auto p-4">
-            <div id="twteszt-2">
-                <p>TW TESZT 2</p><br><br>
-                <button id="jqueryTeszt" class="px-4 py-2 bg-blue-500 text-white rounded">jQuery Teszt</button><br><br>
-                <div x-data="{ open: false }" x-cloak>
-                    <button @click="open = !open" class="px-4 py-2 bg-blue-500 text-white rounded">
-                    <span x-show="!open">Mutasd</span>
-                    <span x-show="open">Rejtsd</span>
-                    </button>
-
-                    <p x-show="open" class="mt-4 p-4 bg-gray-700 rounded">
-                        Ez egy egyszerű Alpine.js példa!
-                    </p>
-                </div>
-            </div>
+        <main id="content" class="w-full max-w-[1160px] flex-grow mx-auto p-2">
             {{ $slot }}
         </main>
 
         <!-- Lábléc -->
         @if($isMinimalView == false)
-            <footer id="footer" class="bg-gray-800 text-white mt-16 py-8">
+            <footer id="footer" class="w-full max-w-[1160px] mx-auto p-4 text-white mt-16 py-8">
                 <div class="container mx-auto">
                     <!-- Sidebarok grid-ben -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div>
-                            <div class="bg-gray-700 p-4 rounded-lg">
+                            <div>
                                 {!! $sidebars['ts_FocusDefaultTheme_sidebar_bottom_1'] !!}
                             </div>
                         </div>
                         <div>
-                            <div class="bg-gray-700 p-4 rounded-lg">
+                            <div>
                                 {!! $sidebars['ts_FocusDefaultTheme_sidebar_bottom_2'] !!}
                             </div>
                         </div>
                         <div>
-                            <div class="bg-gray-700 p-4 rounded-lg">
+                            <div>
                                 {!! $sidebars['ts_FocusDefaultTheme_sidebar_bottom_3'] !!}
                             </div>
                         </div>
                     </div>
 
                     <!-- Copyright szöveg -->
-                    <div class="mt-16 text-center text-gray-400">
+                    <div class="mt-6 text-center text-gray-400">
                         &copy; {{ date('Y') }} Minden jog fenntartva.
                     </div>
                 </div>
             </footer>
         @endif
+
+        @stack('scripts')
     </body>
 </html>

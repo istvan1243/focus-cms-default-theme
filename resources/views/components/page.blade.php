@@ -6,9 +6,5 @@
 </div>
 
 @push('scripts')
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
 
-    });
-</script>
 @endpush
