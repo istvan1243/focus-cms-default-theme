@@ -76,7 +76,7 @@ class ThemeServiceProvider extends ServiceProvider
     {
         // Komponensek regisztrációja közvetlenül a saját névterükkel
         $components = [
-            \Themes\FocusDefaultTheme\Classes\Components\Post::class => 'post',
+            //\Themes\FocusDefaultTheme\Classes\Components\Post::class => 'post',
             \Themes\FocusDefaultTheme\Classes\Layouts\Components\PublicDefault::class => 'public-default',
             \Themes\FocusDefaultTheme\Classes\Layouts\Components\MaintenanceDefault::class => 'maintenance-default'
         ];

@@ -14,6 +14,7 @@ return [
             'ts_FocusDefaultTheme_sidebar_bottom_1'    => 'nullable|string',
             'ts_FocusDefaultTheme_sidebar_bottom_2'    => 'nullable|string',
             'ts_FocusDefaultTheme_sidebar_bottom_3'    => 'nullable|string',
+            'ts_FocusDefaultTheme_sidebar_bottom_4'    => 'nullable|string',
         ]
     ]
 ];

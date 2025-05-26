@@ -67,7 +67,7 @@
         @endif
 
         <!-- Fő tartalom -->
-        <main id="content" class="w-full max-w-[1160px] flex-grow mx-auto p-2">
+        <main id="content" class="w-full max-w-[1160px] flex-grow mx-auto p-2 shadow-lg ">
             {{ $slot }}
         </main>
 
@@ -95,8 +95,8 @@
                     </div>
 
                     <!-- Copyright szöveg -->
-                    <div class="mt-6 text-center text-gray-400">
-                        &copy; {{ date('Y') }} Minden jog fenntartva.
+                    <div class="">
+                        {!! $sidebars['ts_FocusDefaultTheme_sidebar_bottom_4'] !!}
                     </div>
                 </div>
             </footer>

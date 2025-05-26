@@ -12,12 +12,12 @@
 }
 
 .top-menu-item {
-    @apply inline-block my-4 mx-2 py-4 px-6 border-white border-b-2 border-solid  hover:border-gray-600;
+    @apply inline-block my-1 mx-1 py-3 text-xl border-white border-b-2 border-solid  hover:border-gray-600;
 }
-    .active {
-        @apply border-gray-600;
-    }
 
+.active {
+    @apply border-gray-600;
+}
 
 .file-links {
     .file-links {

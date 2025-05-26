@@ -11,4 +11,5 @@ return [
     'ts_FocusDefaultTheme_sidebar_bottom_1'    => null,
     'ts_FocusDefaultTheme_sidebar_bottom_2'    => null,
     'ts_FocusDefaultTheme_sidebar_bottom_3'    => null,
+    'ts_FocusDefaultTheme_sidebar_bottom_4'    => null,
 ];
