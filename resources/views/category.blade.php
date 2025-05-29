@@ -22,11 +22,12 @@
         @foreach($category->posts as $post)
             <div class="p-2">
                 <p class="text-sm text-gray-400">{{ $category->title }}</p>
-                <p class="mt-1 mb-1 text-black text-2xl font-semibold">
+                <p class="mt-1 mb-0 text-black text-2xl font-semibold">
                     <a href="{{ route('post.show', ['slug'=>$post->name]) }}" target="_self">{{ $post->title }}</a>
                 </p>
-                <p class="mb-1">{!! Str::limit(markdownToHtml($post->content), 240, '<span class="ml-1 text-gray-400">[...]</span>') !!}</p>
-                <p class="mt-2">
+                <p class="text-gray-600 w-full">{{ $post->created_at->format('Y-m-d') }}</p>
+                <p class="my-2">{!! strip_tags(Str::limit(markdownToHtml($post->content), 240, '<span class="ml-1 text-gray-400">[...]</span>')) !!}</p>
+                <p class="">
                     <a
                         href="{{ route('post.show', ['slug'=>$post->name]) }}"
                         target="_self"
