@@ -30,7 +30,7 @@
     "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
   },
   "resources/css/app.css": {
-    "file": "css/app-cAYySkAJ.css",
+    "file": "css/app-BIIMMhiz.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -40,7 +40,7 @@
     "isEntry": true
   },
   "resources/css/theme-FocusDefaultTheme-app.css": {
-    "file": "css/theme-FocusDefaultTheme-app-T2RVDZOt.css",
+    "file": "css/theme-FocusDefaultTheme-app-DG90pEWX.css",
     "src": "resources/css/theme-FocusDefaultTheme-app.css",
     "isEntry": true
   },
