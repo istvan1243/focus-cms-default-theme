@@ -39,7 +39,7 @@
 }
 
 p {
-    @apply inline-block leading-[1.2] my-2 text-base !important;
+    @apply inline-block w-full leading-[1.2] my-2 text-base !important;
 }
 
 blockquote {
