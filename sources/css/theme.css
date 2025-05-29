@@ -39,6 +39,9 @@
 }
 
 p {
-    @apply leading-[1.2] my-2 text-base !important;
+    @apply inline-block leading-[1.2] my-2 text-base !important;
 }
 
+blockquote {
+    @apply block relative border-l-4 border-gray-500 pl-4 py-3 my-4 ml-1 !important;
+}
