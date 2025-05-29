@@ -8,11 +8,20 @@
 
 .sidebar-widget-content,
 .sidebar-widget-content p {
-    @apply mb-2 text-black text-base;
+    @apply block w-full text-lg leading-[1.2] text-black  !important;
 }
 
+.sidebar-widget-content a,
+.sidebar-widget-content a:visible,
+.sidebar-widget-content a:focus {
+    @apply text-blue-400;
+}
+
+.sidebar-widget-content a:hover {
+    @apply  text-blue-800;
+}
 .top-menu-item {
-    @apply inline-block my-1 mx-1 py-3 text-xl border-white border-b-2 border-solid  hover:border-gray-600;
+    @apply inline-block my-1 mx-1 py-3 text-base border-white border-b-2 border-solid  hover:border-gray-600;
 }
 
 .active {
@@ -22,7 +31,6 @@
 .file-links {
     .file-links {
         @apply my-2 py-4 px-4 inline-block border rounded;
-        @apply my-2 py-4 px-4 inline-block border rounded;
     }
 }
 
@@ -31,5 +39,6 @@
 }
 
 p {
-    @apply my-2 !important;
+    @apply leading-[1.2] my-2 text-base !important;
 }
+
