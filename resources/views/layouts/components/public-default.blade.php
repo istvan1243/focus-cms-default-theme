@@ -30,7 +30,8 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link rel="stylesheet" href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" />
-        <link rel="stylesheet" href="{{ asset('assets/fontawesome/css/all.min.css') }}" />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
         <link rel="stylesheet" href="{{ asset('assets/prism.js/prism.css') }}" />
         <link rel="stylesheet" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
 
@@ -58,7 +59,7 @@
 
         @stack('my-styles')
     </head>
-    <body class="bg-white min-h-screen flex flex-col">
+    <body class="bg-white w-full min-h-screen flex flex-col">
         @if($isMinimalView == false)
             <!-- Fejléc -->
             <header id="header" class="w-full  max-w-[1160px] mx-auto p-4">
