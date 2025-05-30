@@ -118,12 +118,14 @@ p {
 
 
 .sidebar-widget-content a,
-.sidebar-widget-content p a {
+.sidebar-widget-content a:visited,
+.sidebar-widget-content p a,
+.sidebar-widget-content p a:visited {
   @apply !text-red-800;
 }
 
 .sidebar-widget-content a:hover,
-.sidebar-widget-content p a {
+.sidebar-widget-content p a:hover {
     @apply  !text-red-400;
 }
 
