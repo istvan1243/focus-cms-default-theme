@@ -68,8 +68,8 @@
         @endif
 
         <!-- Fő tartalom -->
-        <main id="content" class="w-full lg:bg-gray-200 py-1 lg:py-16">
-            <div class="py-10 px-6 bg-white lg:px-8 w-full max-w-[1160px] flex-grow mx-auto p-2 shadow-xl">
+        <main id="content" class="w-full lg:bg-gray-200 py-0 md:py-1 lg:py-16">
+            <div class="py-0 lg:py-10 px-6 bg-white lg:px-8 w-full max-w-[1160px] flex-grow mx-auto shadow-xl">
                 {{ $slot }}
             </div>
         </main>
