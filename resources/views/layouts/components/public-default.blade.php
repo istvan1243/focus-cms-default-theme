@@ -69,7 +69,7 @@
 
         <!-- Fő tartalom -->
         <main id="content" class="w-full lg:bg-gray-200 py-0 md:py-1 lg:py-16">
-            <div class="pt-0 pb-10 lg:py-10 px-6 bg-white lg:px-8 w-full max-w-[1160px] flex-grow mx-auto shadow-xl">
+            <div class="pt-0 pb-10 lg:pt-10 lg:pb-20 px-6 bg-white lg:px-8 w-full max-w-[1160px] flex-grow mx-auto shadow-xl">
                 {{ $slot }}
             </div>
         </main>
