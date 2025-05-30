@@ -18,7 +18,7 @@
             <meta name="keywords" content="{{ implode(', ', $tags->pluck('title')->toArray()) }}">
         @endif
         <meta property="og:title" content="{{ $post->title }}" />
-        <meta property="og:type" content="article" />
+        <meta property="og:type" content="website" />
         <meta property="og:url" content="{{ url()->current() }}" />
         <meta property="og:image" content="{{ url('storage/images/site-logo.jpg') }}" />
         <meta property="og:description" content="{!! strip_tags(Str::limit(markdownToHtml($post->content), 145, '<span class="ml-1 text-gray-400">[...]</span>')) !!}" />
