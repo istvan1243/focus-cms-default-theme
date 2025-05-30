@@ -113,18 +113,20 @@ p {
 
 .sidebar-widget-content,
 .sidebar-widget-content p {
-    @apply block w-full text-lg leading-[1.2] text-black  !important;
+    @apply !block !w-full !text-lg !leading-[1.2] !text-black;
 }
 
+
 .sidebar-widget-content a,
-.sidebar-widget-content a:visible,
-.sidebar-widget-content a:focus {
-    @apply text-blue-400;
+.sidebar-widget-content p a {
+  @apply !text-blue-800;
 }
 
 .sidebar-widget-content a:hover {
-    @apply  text-blue-800;
+    @apply  text-blue-400;
 }
+
+
 .top-menu-item {
     @apply inline-block my-1 mx-1 py-3 text-base border-white border-b-2 border-solid  hover:border-gray-600;
 }
@@ -144,10 +146,10 @@ p {
 }
 
 p {
-    @apply inline-block w-full leading-[1.2] my-2 text-base !important;
+    @apply !inline-block !w-full !leading-[1.2] !my-2 !text-base;
 }
 
 blockquote {
-    @apply block relative border-l-4 border-gray-500 pl-4 py-3 my-4 ml-1 !important;
+    @apply !block !relative !border-l-4 !border-gray-500 !pl-4 !py-3 !my-4 !ml-1;
 }
 
