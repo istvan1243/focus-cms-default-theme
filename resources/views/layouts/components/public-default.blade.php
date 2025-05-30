@@ -62,13 +62,13 @@
     <body class="bg-white w-full min-h-screen flex flex-col">
         @if($isMinimalView == false)
             <!-- Fejléc -->
-            <header id="header" class="w-full  max-w-[1160px] mx-auto p-4">
+            <header id="header" class="w-full  max-w-[1160px] mx-auto p-4 break-words whitespace-normal hyphens-auto">
                 {!! $sidebars['ts_FocusDefaultTheme_sidebar_top_nav'] !!}
             </header>
         @endif
 
         <!-- Fő tartalom -->
-        <main id="content" class="w-full lg:bg-gray-200 py-0 md:py-1 lg:py-16">
+        <main id="content" class="w-full lg:bg-gray-200 py-0 md:py-1 lg:py-16 break-words whitespace-normal hyphens-auto">
             <div class="mx-auto pt-0 pb-10 lg:pt-10 lg:pb-20 px-6 bg-white lg:px-8 w-full max-w-[1160px] flex-grow shadow-xl">
                 {{ $slot }}
             </div>
@@ -76,7 +76,7 @@
 
         <!-- Lábléc -->
         @if($isMinimalView == false)
-            <footer id="footer" class="w-full max-w-[1160px] mx-auto p-4 text-white mt-16 py-8">
+            <footer id="footer" class="w-full max-w-[1160px] mx-auto p-4 text-white mt-16 py-8 break-words whitespace-normal hyphens-auto">
                 <div class="container mx-auto">
                     <!-- Sidebarok grid-ben -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
