@@ -20,14 +20,14 @@
         <meta property="og:title" content="{{ $post->title }}" />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="{{ url()->current() }}" />
-        <meta property="og:image" content="url("storage/images/site-logo.jpg")" />
+        <meta property="og:image" content="{{ url('storage/images/site-logo.jpg') }}" />
         <meta property="og:description" content="{!! strip_tags(Str::limit(markdownToHtml($post->content), 145, '<span class="ml-1 text-gray-400">[...]</span>')) !!}" />
         <meta property="og:site_name" content="{{ config('app.name') }}" />
         <meta property="og:locale" content="hu_HU" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="{{ $post->title }}" />
         <meta name="twitter:description" content="{!! strip_tags(Str::limit(markdownToHtml($post->content), 145, '<span class="ml-1 text-gray-400">[...]</span>')) !!}" />
-        <meta name="twitter:image" content="url("storage/images/site-logo.jpg")" />
+        <meta name="twitter:image" content="{{ url('storage/images/site-logo.jpg') }}" />
         <meta name="twitter:site" content="" />
     @endpush
 
