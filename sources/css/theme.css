@@ -119,12 +119,12 @@ p {
 
 .sidebar-widget-content a,
 .sidebar-widget-content p a {
-  @apply !text-blue-800;
+  @apply !text-red-800;
 }
 
 .sidebar-widget-content a:hover,
 .sidebar-widget-content p a {
-    @apply  text-blue-400;
+    @apply  !text-red-400;
 }
 
 
