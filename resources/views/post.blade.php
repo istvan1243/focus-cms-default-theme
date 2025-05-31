@@ -62,15 +62,19 @@
         </div>
 
         @if($post->post_type_name == 'post')
-            <div class="mt-10"  x-data="prevNextToggle()" x-cloak>
+            <div
+                class="mt-10 w-full block relative justify-items-center"
+                x-data="prevNextToggle()"
+                x-cloak
+            >
                 <div
-                    class="!mb-6 flex justify-center items-center w-full space-x-2 text-center text-lg cursor-pointer"
+                    class="!mb-6 swadow-lg py-4 px-6 inline-grid grid-cols-1 sm:grid-cols-[auto_auto] gap-4 sm:gap-1 justify-center items-center mx-auto space-x-2 text-center text-lg cursor-pointer border rounded"
                     :class="isCategoryFilter ? 'text-purple-600' : 'text-blue-900'"
                     @click="isCategoryFilter = !isCategoryFilter"
                 >
-                    <span>- További tartalmak:</span>
+                    <div class="inline-flex justify-center sm:justify-start items-center">További tartalmak:</div>
 
-                    <div class="inline-flex items-center space-x-4">
+                    <div class="inline-flex w-full sm:w-auto justify-center sm:justify-start items-center space-x-4">
                         <input
                             type="hidden"
                             id="PrevNextPostCategoryFilter"
@@ -79,13 +83,12 @@
                             :value="isCategoryFilter ? 1 : 0"
                             x-cloak
                         >
-                        <span class="inline-block text-lg" x-text="isCategoryFilter ? 'a kategóriában' : 'mind'"></span>
+                        <span class="inline-block" x-text="isCategoryFilter ? 'a kategóriában' : 'mind'"></span>
                         <i
-                            class="mdi scale-[180%]"
+                            class="inline-block mdi scale-[180%]"
                             :class="isCategoryFilter ? 'mdi-filter-check-outline' : 'mdi-filter-off-outline'"
                         ></i>
                     </div>
-                    <span>-</span>
                 </div>
 
                 <!-- Kategória alapú navigáció -->
