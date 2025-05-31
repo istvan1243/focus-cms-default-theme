@@ -63,12 +63,12 @@
 
         @if($post->post_type_name == 'post')
             <div
-                class="mt-10 w-full block relative justify-items-center"
+                class="mt-10 w-full block justify-center"
                 x-data="prevNextToggle()"
                 x-cloak
             >
                 <div
-                    class="!mb-6 swadow-lg py-4 px-6 inline-grid grid-cols-1 sm:grid-cols-[auto_auto] gap-4 sm:gap-1 justify-center items-center mx-auto space-x-2 text-center text-lg cursor-pointer border rounded"
+                    class=" w-fit mx-auto !mb-6 shadow-lg py-4 px-6  grid grid-cols-1 sm:grid-cols-[auto_auto] gap-4 sm:gap-1 justify-center items-center space-x-2 text-center text-lg cursor-pointer border rounded"
                     :class="isCategoryFilter ? 'text-purple-600' : 'text-blue-900'"
                     @click="isCategoryFilter = !isCategoryFilter"
                 >
