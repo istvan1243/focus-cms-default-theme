@@ -27,24 +27,19 @@
 
         @stack('meta_tags')
 
-        <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link rel="stylesheet" href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" />
+
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
         <link rel="stylesheet" href="{{ asset('assets/prism.js/prism.css') }}" />
         <link rel="stylesheet" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
-
-        <!-- Scripts -->
-        <style>
-            [x-cloak] { display: none !important; }
-        </style>
+        <link rel="stylesheet" href="{{ url('themepublic/ps/dist/photoswipe.css') }}">
 
         <script defer src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script defer src="{{ asset('assets/prism.js/prism.js') }}"></script>
-
 
         @if( $viteIsActive == false)
             <link rel="stylesheet" href="{{ asset($theme_vite_data['css']) }}" rel="stylesheet" />
@@ -53,11 +48,9 @@
             @vite($viteAssets)
         @endif
 
-
-        <!-- Head scripts -->
         @stack('head_scripts')
 
-        @stack('my-styles')
+        @stack('head_styles')
     </head>
     <body class="bg-white w-full min-h-screen flex flex-col">
         @if($isMinimalView == false)
@@ -104,6 +97,127 @@
                 </div>
             </footer>
         @endif
+
+        <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const gallery = document.querySelector('.image-gallery');
+                if (!gallery) return;
+
+                const PhotoSwipeLightboxModule = await import("{{ url('themepublic/ps/dist/photoswipe-lightbox.esm.min.js') }}");
+                const PhotoSwipeModule = await import("{{ url('themepublic/ps/dist/photoswipe.esm.min.js') }}");
+
+                const PhotoSwipeLightbox = PhotoSwipeLightboxModule.default;
+                const PhotoSwipe = PhotoSwipeModule.default;
+
+                const lightbox = new PhotoSwipeLightbox({
+                    gallery: '.image-gallery',
+                    children: 'figure > a',
+                    pswpModule: PhotoSwipe,
+
+                    zoom: false,
+                    maxZoomLevel: 3,
+                    //secondaryZoomLevel: 2,
+                    initialZoomLevel: 'fit',
+
+                    fullscreenEl: true,
+
+                    arrowEl: true,
+                    closeEl: true,
+                    zoomEl: true,
+                    counterEl: true,
+                });
+
+                lightbox.on('uiRegister', function() {
+                    lightbox.pswp.ui.registerElement({
+                        name: 'fullscreen_button_div',
+                        ariaLabel: 'Teljes képernyő',
+                        order: 9,
+                        isButton: true,
+                        html: `
+                            <button type="button" id="fullscreen-toggle" class="text-gray-100 text-xl" title="Teljes képernyő">
+                                <i id="fullscreen-icon" class="mdi mdi-fullscreen mdi-24"></i>
+                            </button>
+                        `,
+                        onClick: () => {
+                            if (!document.fullscreenElement) {
+                                document.body.requestFullscreen();
+                                // ikon frissítés opcionálisan
+                                document.getElementById('fullscreen-icon').classList.remove('mdi-fullscreen');
+                                document.getElementById('fullscreen-icon').classList.add('mdi-fullscreen-exit');
+                                document.body.style.overflow = 'hidden';
+                            } else {
+                                document.exitFullscreen();
+                                // ikon visszaállítása
+                                document.getElementById('fullscreen-icon').classList.remove('mdi-fullscreen-exit');
+                                document.getElementById('fullscreen-icon').classList.add('mdi-fullscreen');
+                                document.body.style.overflow = '';
+                            }
+                        }
+                    });
+                });
+
+                lightbox.on('close', function() {
+                    // Kilépés fullscreen módból, ha benne vagyunk
+                    if (document.fullscreenElement) {
+                        document.exitFullscreen().catch(err => {
+                            console.warn('Nem sikerült kilépni fullscreen módból:', err);
+                        });
+                    }
+
+                    // Visszaállítjuk az ikonokat
+                    const icon = document.getElementById('fullscreen-icon');
+                    if (icon) {
+                        icon.classList.remove('mdi-fullscreen-exit');
+                        icon.classList.add('mdi-fullscreen');
+                    }
+
+                    // Scroll engedélyezése újra
+                    document.body.style.overflow = '';
+                });
+
+                lightbox.init();
+
+            } catch (error) {
+                console.error('Hiba történt a PhotoSwipe betöltése közben:', error);
+            }
+        });
+        </script>
+
+        <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="pswp__bg"></div>
+            <div class="pswp__scroll-wrap">
+                <div class="pswp__container">
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                </div>
+
+                <div class="pswp__ui pswp__ui--hidden">
+                    <div class="pswp__top-bar">
+                        <div class="pswp__counter"></div>
+                        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                        <button class="pswp__button pswp__button--share" title="Share"></button>
+                        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                        <div class="pswp__preloader">
+                            <div class="pswp__preloader__icn">
+                                <div class="pswp__preloader__cut">
+                                    <div class="pswp__preloader__donut"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                        <div class="pswp__share-tooltip"></div>
+                    </div>
+                    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+                    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+                    <div class="pswp__caption">
+                        <div class="pswp__caption__center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         @stack('scripts')
     </body>

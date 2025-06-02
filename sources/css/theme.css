@@ -93,9 +93,8 @@ p {
     }
 
 
-[x-cloak] {
-    display: none !important;
-}
+[x-cloak] { display: none !important; }
+
 
 
 .mdi.md-18 { font-size: 18px; }
@@ -154,5 +153,90 @@ p {
 
 blockquote {
     @apply !block !relative !border-l-4 !border-gray-500 !pl-4 !py-3 !my-4 !ml-1;
+}
+
+/* resources/css/app.css */
+.pswp {
+    @apply z-[99999];
+    box-sizing: content-box !important;
+}
+
+.pswp__img {
+    @apply max-w-none h-auto m-auto block object-contain;
+}
+
+.pswp__button--zoom,
+.pswp__button--share,
+.pswp__button--close {
+    @apply block;
+}
+
+
+.image-with-viewer {
+    @apply inline-block my-4;
+}
+
+.image-with-viewer-with-text {
+    container-type: inline-size;
+    @apply my-4 w-full inline-block shadow;
+}
+
+.img-figure {
+    @apply inline-flex items-center ;
+}
+
+.img-figure-with-text {
+
+    @apply w-full grid grid-cols-1 md:grid-cols-[auto_minmax(30%,_1fr)] items-center text-left;
+}
+
+
+@container (max-width: 768px) {
+  .img-figure-with-text {
+    @apply grid-cols-1;
+  }
+}
+
+
+.img-figure-a {
+    overflow: visible;
+    display: inline-block;
+}
+
+.img-figure-img {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    @apply rounded;
+}
+
+.img-figure-img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25);
+}
+
+.img-figcaption {
+    @apply inline-block  p-3;
+}
+
+.image-gallery-wrapper {
+    container-type: inline-size;
+}
+
+
+@container (max-width: 320px) {
+    .gallery-container {
+        @apply grid-cols-1;
+    }
+}
+
+@container  (min-width: 321px) and (max-width: 448px) {
+    .gallery-container {
+        @apply grid-cols-2;
+    }
+}
+
+@container  (min-width: 449px) and (max-width: 768px) {
+    .gallery-container {
+        @apply grid-cols-3;
+    }
 }
 
