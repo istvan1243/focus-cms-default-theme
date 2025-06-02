@@ -4,7 +4,7 @@
     if( $viteIsActive == true) {
         $viteAssets = [
             "Themes/{$currentTheme}/public/js/theme.js",
-            "resources/css/theme-{$currentTheme}-app.css"
+            "Themes/{$currentTheme}/public/css/theme.css"
         ];
     } else {
         $themeManifestPath = public_path("themepublic/build/manifest.json");
@@ -34,9 +34,7 @@
 
         <link rel="stylesheet" href="{{ asset('assets/prism.js/prism.css') }}" />
         <link rel="stylesheet" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
-        <link rel="stylesheet" href="{{ url('themepublic/ps/dist/photoswipe.css') }}">
 
-        <script defer src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script defer src="{{ asset('assets/prism.js/prism.js') }}"></script>
