@@ -45,6 +45,8 @@
             <link rel="stylesheet" href="{{ asset($theme_vite_data['css']) }}" rel="stylesheet" />
             <script defer src="{{ asset($theme_vite_data['js']) }}"></script>
         @else
+
+        @endphp
             @vite($viteAssets)
         @endif
 
@@ -99,89 +101,8 @@
         @endif
 
         <script>
-        document.addEventListener('DOMContentLoaded', async () => {
-            try {
-                const gallery = document.querySelector('.image-gallery');
-                if (!gallery) return;
 
-                const PhotoSwipeLightboxModule = await import("{{ url('themepublic/ps/dist/photoswipe-lightbox.esm.min.js') }}");
-                const PhotoSwipeModule = await import("{{ url('themepublic/ps/dist/photoswipe.esm.min.js') }}");
 
-                const PhotoSwipeLightbox = PhotoSwipeLightboxModule.default;
-                const PhotoSwipe = PhotoSwipeModule.default;
-
-                const lightbox = new PhotoSwipeLightbox({
-                    gallery: '.image-gallery',
-                    children: 'figure > a',
-                    pswpModule: PhotoSwipe,
-
-                    zoom: false,
-                    maxZoomLevel: 3,
-                    //secondaryZoomLevel: 2,
-                    initialZoomLevel: 'fit',
-
-                    fullscreenEl: true,
-
-                    arrowEl: true,
-                    closeEl: true,
-                    zoomEl: true,
-                    counterEl: true,
-                });
-
-                lightbox.on('uiRegister', function() {
-                    lightbox.pswp.ui.registerElement({
-                        name: 'fullscreen_button_div',
-                        ariaLabel: 'Teljes képernyő',
-                        order: 9,
-                        isButton: true,
-                        html: `
-                            <button type="button" id="fullscreen-toggle" class="text-gray-100 text-xl" title="Teljes képernyő">
-                                <i id="fullscreen-icon" class="mdi mdi-fullscreen mdi-24"></i>
-                            </button>
-                        `,
-                        onClick: () => {
-                            if (!document.fullscreenElement) {
-                                document.body.requestFullscreen();
-                                // ikon frissítés opcionálisan
-                                document.getElementById('fullscreen-icon').classList.remove('mdi-fullscreen');
-                                document.getElementById('fullscreen-icon').classList.add('mdi-fullscreen-exit');
-                                document.body.style.overflow = 'hidden';
-                            } else {
-                                document.exitFullscreen();
-                                // ikon visszaállítása
-                                document.getElementById('fullscreen-icon').classList.remove('mdi-fullscreen-exit');
-                                document.getElementById('fullscreen-icon').classList.add('mdi-fullscreen');
-                                document.body.style.overflow = '';
-                            }
-                        }
-                    });
-                });
-
-                lightbox.on('close', function() {
-                    // Kilépés fullscreen módból, ha benne vagyunk
-                    if (document.fullscreenElement) {
-                        document.exitFullscreen().catch(err => {
-                            console.warn('Nem sikerült kilépni fullscreen módból:', err);
-                        });
-                    }
-
-                    // Visszaállítjuk az ikonokat
-                    const icon = document.getElementById('fullscreen-icon');
-                    if (icon) {
-                        icon.classList.remove('mdi-fullscreen-exit');
-                        icon.classList.add('mdi-fullscreen');
-                    }
-
-                    // Scroll engedélyezése újra
-                    document.body.style.overflow = '';
-                });
-
-                lightbox.init();
-
-            } catch (error) {
-                console.error('Hiba történt a PhotoSwipe betöltése közben:', error);
-            }
-        });
         </script>
 
         <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">

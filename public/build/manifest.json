@@ -1,6 +1,6 @@
 {
   "Themes/FocusDefaultTheme/public/js/theme.js": {
-    "file": "assets/theme-DZGN7j6s.js",
+    "file": "assets/theme-BmiyBKgC.js",
     "name": "theme",
     "src": "Themes/FocusDefaultTheme/public/js/theme.js",
     "isEntry": true
@@ -8,10 +8,6 @@
   "_image-picker-B31LTR6C.js": {
     "file": "assets/image-picker-B31LTR6C.js",
     "name": "image-picker"
-  },
-  "_module.esm-Cm4okMZt.js": {
-    "file": "assets/module.esm-Cm4okMZt.js",
-    "name": "module.esm"
   },
   "node_modules/@mdi/font/fonts/materialdesignicons-webfont.eot": {
     "file": "assets/materialdesignicons-webfont-CSr8KVlo.eot",
@@ -30,7 +26,7 @@
     "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
   },
   "resources/css/app.css": {
-    "file": "css/app-DRoUc8wd.css",
+    "file": "css/app-D09MYu-_.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -45,12 +41,11 @@
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-B54deIrR.js",
+    "file": "assets/app-DS6dAyMS.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "imports": [
-      "_module.esm-Cm4okMZt.js",
       "_image-picker-B31LTR6C.js",
       "resources/js/preview-post-content.js"
     ]
@@ -62,13 +57,10 @@
     "isEntry": true
   },
   "resources/js/theme-FocusDefaultTheme-app.js": {
-    "file": "assets/theme-FocusDefaultTheme-app-DMR16Mp4.js",
+    "file": "assets/theme-FocusDefaultTheme-app-l0sNRNKZ.js",
     "name": "theme-FocusDefaultTheme-app",
     "src": "resources/js/theme-FocusDefaultTheme-app.js",
-    "isEntry": true,
-    "imports": [
-      "_module.esm-Cm4okMZt.js"
-    ]
+    "isEntry": true
   },
   "resources/js/uppy.js": {
     "file": "assets/uppy-DmfI719L.js",

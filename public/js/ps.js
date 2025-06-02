@@ -1,18 +1,11 @@
-import Alpine from 'alpinejs';
-import PhotoSwipe from 'photoswipe';
-import PhotoSwipeLightbox from 'photoswipe/lightbox';
-
-window.Alpine = Alpine;
-Alpine.start();
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   const gallery = document.querySelector('.image-gallery');
   if (!gallery) return;
 
-  const lightbox = new PhotoSwipeLightbox({
+  const lightbox = new window.PhotoSwipeLightbox({
     gallery: '.image-gallery',
     children: 'figure > a',
-    pswpModule: () => import('photoswipe'),
+    pswpModule: () => window.PhotoSwipe,
   });
 
   lightbox.on('uiRegister', () => {
