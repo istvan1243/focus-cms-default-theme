@@ -184,7 +184,7 @@ blockquote {
 
 .image-with-viewer-with-text {
     container-type: inline-size;
-    @apply my-4 w-full inline-block shadow;
+    @apply my-4 w-full inline-block shadow-lg;
 }
 
 .img-figure {
@@ -228,7 +228,7 @@ blockquote {
 }
 
 .gallery-container {
-    @apply grid grid-cols-1  md:grid-cols-3 lg:grid-cols-4 items-center gap-4;
+    @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 items-center gap-4;
 }
 
 @container (max-width: 320px) {
