@@ -33,13 +33,13 @@
 
 
 
-        <link rel="stylesheet" href="{{ asset('assets/prism.js/prism.css') }}" />
-        <link rel="stylesheet" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+        <link rel="preload" as="style" href="{{ asset('assets/prism.js/prism.css') }}" onload="this.rel='stylesheet'">
+        <link rel="preload" as="style" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'onload="this.rel='stylesheet'">
 
         <script defer src="{{ asset('assets/prism.js/prism.js') }}"></script>
 
         @if( $viteIsActive == false)
-            <link rel="stylesheet" href="{{ asset($theme_vite_data['css']) }}" rel="stylesheet" />
+            <link rel="preload" as="style" href="{{ asset($theme_vite_data['css']) }}" onload="this.rel='stylesheet'">
             <script type="module" src="{{ asset($theme_vite_data['js']) }}"></script>
         @else
             @vite($viteAssets)
