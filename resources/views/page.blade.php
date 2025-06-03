@@ -38,12 +38,4 @@
             {!! $post->content !!}
         </div>
     </div>
-
-    @push('scripts')
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-
-            });
-        </script>
-    @endpush
 </x-public-default>

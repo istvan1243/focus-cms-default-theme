@@ -3,15 +3,16 @@
 
     if( $viteIsActive == true) {
         $viteAssets = [
-            "Themes/{$currentTheme}/public/js/theme.js",
-            "Themes/{$currentTheme}/public/css/theme.css"
+            "Themes/{$currentTheme}/resources/js/theme.js",
+            "Themes/{$currentTheme}/resources/css/theme.css"
         ];
     } else {
         $themeManifestPath = public_path("themepublic/build/manifest.json");
         $manifest = json_decode(file_get_contents($themeManifestPath), true);
+
         $theme_vite_data = [
-            "js" => "themepublic/build/".$manifest["Themes/{$currentTheme}/public/js/theme.js"]['file'] ?? '',
-            "css" => "themepublic/build/".$manifest["resources/css/theme-{$currentTheme}-app.css"]['file'] ?? ''
+            "js" => "themepublic/build/".$manifest["Themes/{$currentTheme}/resources/js/theme.js"]['file'] ?? '',
+            "css" => "themepublic/build/".$manifest["Themes/{$currentTheme}/resources/css/theme.css"]['file'] ?? ''
         ];
     }
 
@@ -30,21 +31,17 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link rel="stylesheet" href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" />
 
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
 
         <link rel="stylesheet" href="{{ asset('assets/prism.js/prism.css') }}" />
         <link rel="stylesheet" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
 
-        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-        <script defer src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script defer src="{{ asset('assets/prism.js/prism.js') }}"></script>
 
         @if( $viteIsActive == false)
             <link rel="stylesheet" href="{{ asset($theme_vite_data['css']) }}" rel="stylesheet" />
-            <script defer src="{{ asset($theme_vite_data['js']) }}"></script>
+            <script type="module" src="{{ asset($theme_vite_data['js']) }}"></script>
         @else
-
-        @endphp
             @vite($viteAssets)
         @endif
 

@@ -1,0 +1,59 @@
+import defaultTheme from 'tailwindcss/defaultTheme';
+import forms from '@tailwindcss/forms';
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    // Téma saját fájljai
+    './resources/**/*.blade.php',
+    './resources/**/*.js',
+    './resources/**/*.vue',
+
+    // Laravel alap fájlok (ha hozzáférés szükséges)
+    '../../../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+    '../../../../storage/framework/views/*.php',
+    '../../../../resources/views/**/*.blade.php',
+
+    // Node modulokból származó komponensek
+    './node_modules/@protonemedia/inertiajs-tables-laravel-query-builder/**/*.{js,vue}'
+  ],
+
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+      },
+      colors: {
+        primary: {
+          DEFAULT: '#6366f1',
+          light: '#818cf8',
+          dark: '#4f46e5',
+        },
+        secondary: {
+          DEFAULT: '#ec4899',
+          light: '#f472b6',
+          dark: '#db2777',
+        },
+      },
+      screens: {
+        'xs': '475px',
+        '3xl': '1792px',
+      },
+    },
+  },
+
+  plugins: [
+    forms,
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/container-queries'),
+    function({ addVariant }) {
+      addVariant('touch', '@media (pointer: coarse)');
+      addVariant('not-touch', '@media (pointer: fine)');
+    }
+  ],
+
+  corePlugins: {
+    float: false,
+  },
+};

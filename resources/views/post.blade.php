@@ -164,13 +164,13 @@
                 return {
                     isCategoryFilter: true,
                     init() {
-                        let val = window.Cookies.get('PrevNextPostCategoryFilter');
+                        let val = Cookies.get('PrevNextPostCategoryFilter');
                         console.log("InitVal: " + val);
                         this.isCategoryFilter = val !== 'false'; // ha nincs: true
 
                         this.$watch('isCategoryFilter', (val) => {
                             console.log("CookieSetVal: " + val);
-                            window.Cookies.set('PrevNextPostCategoryFilter', val ? 'true' : 'false', { expires: 7 });
+                            Cookies.set('PrevNextPostCategoryFilter', val ? 'true' : 'false', { expires: 7 });
                         });
                     }
                 }

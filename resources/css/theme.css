@@ -1,6 +1,9 @@
-@import '../../../../node_modules/@mdi/font/css/materialdesignicons.min.css';
-@import '../../../../node_modules/photoswipe/dist/photoswipe.css';
+@import '@mdi/font/css/materialdesignicons.min.css';
+@import 'photoswipe/dist/photoswipe.css';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Alapértelmezett szövegstílusok */
 h1 {
@@ -242,4 +245,5 @@ blockquote {
         @apply grid-cols-3;
     }
 }
+
 

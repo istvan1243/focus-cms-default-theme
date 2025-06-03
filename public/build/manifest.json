@@ -1,13 +1,42 @@
 {
-  "Themes/FocusDefaultTheme/public/js/theme.js": {
-    "file": "assets/theme-BmiyBKgC.js",
-    "name": "theme",
-    "src": "Themes/FocusDefaultTheme/public/js/theme.js",
+  "Themes/FocusDefaultTheme/resources/css/theme.css": {
+    "file": "css/theme-B3cFnGh3.css",
+    "src": "Themes/FocusDefaultTheme/resources/css/theme.css",
     "isEntry": true
   },
-  "_image-picker-B31LTR6C.js": {
-    "file": "assets/image-picker-B31LTR6C.js",
-    "name": "image-picker"
+  "Themes/FocusDefaultTheme/resources/js/theme.js": {
+    "file": "assets/theme-DsvYzgNR.js",
+    "name": "theme",
+    "src": "Themes/FocusDefaultTheme/resources/js/theme.js",
+    "isEntry": true,
+    "imports": [
+      "_js.cookie-DiPtqxv8.js",
+      "_jquery-D1OJK1Yd.js"
+    ],
+    "css": [
+      "css/theme-B3cFnGh3.css"
+    ],
+    "assets": [
+      "assets/materialdesignicons-webfont-CSr8KVlo.eot",
+      "assets/materialdesignicons-webfont-Dp5v-WZN.woff2",
+      "assets/materialdesignicons-webfont-PXm3-2wK.woff",
+      "assets/materialdesignicons-webfont-B7mPwVP_.ttf"
+    ]
+  },
+  "_image-picker-CwXDEe1e.js": {
+    "file": "assets/image-picker-CwXDEe1e.js",
+    "name": "image-picker",
+    "imports": [
+      "_jquery-D1OJK1Yd.js"
+    ]
+  },
+  "_jquery-D1OJK1Yd.js": {
+    "file": "assets/jquery-D1OJK1Yd.js",
+    "name": "jquery"
+  },
+  "_js.cookie-DiPtqxv8.js": {
+    "file": "assets/js.cookie-DiPtqxv8.js",
+    "name": "js.cookie"
   },
   "node_modules/@mdi/font/fonts/materialdesignicons-webfont.eot": {
     "file": "assets/materialdesignicons-webfont-CSr8KVlo.eot",
@@ -26,7 +55,7 @@
     "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
   },
   "resources/css/app.css": {
-    "file": "css/app-D09MYu-_.css",
+    "file": "css/app-BNWz6qUg.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -35,19 +64,16 @@
     "src": "resources/css/style.css",
     "isEntry": true
   },
-  "resources/css/theme-FocusDefaultTheme-app.css": {
-    "file": "css/theme-FocusDefaultTheme-app-DiPN4GP4.css",
-    "src": "resources/css/theme-FocusDefaultTheme-app.css",
-    "isEntry": true
-  },
   "resources/js/app.js": {
-    "file": "assets/app-DS6dAyMS.js",
+    "file": "assets/app-BKbSKLyk.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "imports": [
-      "_image-picker-B31LTR6C.js",
-      "resources/js/preview-post-content.js"
+      "_js.cookie-DiPtqxv8.js",
+      "_jquery-D1OJK1Yd.js",
+      "resources/js/preview-post-content.js",
+      "_image-picker-CwXDEe1e.js"
     ]
   },
   "resources/js/preview-post-content.js": {
@@ -56,19 +82,14 @@
     "src": "resources/js/preview-post-content.js",
     "isEntry": true
   },
-  "resources/js/theme-FocusDefaultTheme-app.js": {
-    "file": "assets/theme-FocusDefaultTheme-app-l0sNRNKZ.js",
-    "name": "theme-FocusDefaultTheme-app",
-    "src": "resources/js/theme-FocusDefaultTheme-app.js",
-    "isEntry": true
-  },
   "resources/js/uppy.js": {
-    "file": "assets/uppy-DmfI719L.js",
+    "file": "assets/uppy-DqX4kByx.js",
     "name": "uppy",
     "src": "resources/js/uppy.js",
     "isEntry": true,
     "imports": [
-      "_image-picker-B31LTR6C.js"
+      "_jquery-D1OJK1Yd.js",
+      "_image-picker-CwXDEe1e.js"
     ]
   }
 }
