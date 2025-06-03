@@ -31,10 +31,8 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link rel="stylesheet" href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" />
 
-
-
         <link rel="preload" as="style" href="{{ asset('assets/prism.js/prism.css') }}" onload="this.rel='stylesheet'">
-        <link rel="preload" as="style" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'onload="this.rel='stylesheet'">
+        <!-- <link rel="preload" as="style" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'onload="this.rel='stylesheet'"> -->
 
         <script defer src="{{ asset('assets/prism.js/prism.js') }}"></script>
 
