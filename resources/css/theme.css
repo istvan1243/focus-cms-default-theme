@@ -227,6 +227,9 @@ blockquote {
     container-type: inline-size;
 }
 
+.gallery-container {
+    @apply grid grid-cols-1  md:grid-cols-3 lg:grid-cols-4 items-center gap-4;
+}
 
 @container (max-width: 320px) {
     .gallery-container {
@@ -234,13 +237,13 @@ blockquote {
     }
 }
 
-@container  (min-width: 321px) and (max-width: 448px) {
+@container (min-width: 321px) and (max-width: 448px) {
     .gallery-container {
         @apply grid-cols-2;
     }
 }
 
-@container  (min-width: 449px) and (max-width: 768px) {
+@container (min-width: 449px) and (max-width: 768px) {
     .gallery-container {
         @apply grid-cols-3;
     }
