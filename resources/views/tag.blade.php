@@ -19,7 +19,7 @@
     @endif
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6">
-        @foreach($tag->posts as $post)
+        @foreach($tag->posts()->where('status', 'published')->get() as $post)
            <div class="px-2">
                 <p class="text-sm text-gray-400">{{ $tag->title }}</p>
                 <p class="mt-1 mb-0 text-black text-2xl font-semibold">
