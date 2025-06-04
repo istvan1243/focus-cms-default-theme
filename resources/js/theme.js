@@ -23,8 +23,9 @@ Alpine.start();
 import './ps.js';
 
 
+
 console.log('theme.js loaded');
 
-import '../css/theme.css';
+
 
 

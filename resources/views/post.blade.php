@@ -65,7 +65,6 @@
             <div
                 class="mt-10 w-full block justify-center"
                 x-data="prevNextToggle()"
-                x-cloak
             >
                 <div
                     class=" w-fit mx-auto !mb-6 shadow-lg py-4 px-6  grid grid-cols-1 sm:grid-cols-[auto_auto] gap-4 sm:gap-1 justify-center items-center space-x-2 text-center text-lg cursor-pointer border rounded"
@@ -93,65 +92,71 @@
 
                 <!-- Kategória alapú navigáció -->
                 <div
-                    class="w-full p-2 grid grid-cols-[1fr_auto_1fr] gap-2 x-cloak overflow-hidden"
-                    x-show.immediate="isCategoryFilter"
+                    class="w-full p-2"
+                    x-show="isCategoryFilter"
                     x-transition:enter="transition ease-out duration-600"
                     x-transition:enter-start="opacity-0 max-h-0"
                     x-transition:enter-end="opacity-100 max-h-40"
                     x-transition:leave="transition ease-in duration-600"
                     x-transition:leave-start="opacity-100 max-h-40"
                     x-transition:leave-end="opacity-0 max-h-0"
+                    x-cloak
                 >
-                    <div class="flex text-blue-800 hover:text-blue-500 text-start">
-                        @if(!empty($prevPostInTerm))
-                            <a href="{{ url($prevPostInTerm->name) }}" target="_self" class="w-full">
-                                <span class="inline-block w-full my-1"><i class="mdi mdi-arrow-left-thin"></i> Előző</span>
-                                <span class="inline-block w-full my-1">{{ $prevPostInTerm->title }}</span>
-                            </a>
-                        @endif
-                    </div>
-                    <div class="flex items-center">
-                        <div class="flex-col h-[calc(80%)] w-[1px] bg-gray-400"></div>
-                    </div>
-                    <div class="flex text-blue-800 hover:text-blue-500 text-end">
-                        @if(!empty($nextPostInTerm))
-                            <a href="{{ url($nextPostInTerm->name) }}" target="_self" class="w-full">
-                                <span class="inline-block w-full my-1">Következő <i class="mdi mdi-arrow-right-thin"></i></span>
-                                <span class="inline-block w-full my-1">{{ $nextPostInTerm->title }}</span>
-                            </a>
-                        @endif
+                    <div class="grid grid-cols-[1fr_auto_1fr] gap-2 overflow-hidden">
+                        <div class="flex text-blue-800 hover:text-blue-500 text-start">
+                            @if(!empty($prevPostInTerm))
+                                <a href="{{ url($prevPostInTerm->name) }}" target="_self" class="w-full">
+                                    <span class="inline-block w-full my-1"><i class="mdi mdi-arrow-left-thin"></i> Előző</span>
+                                    <span class="inline-block w-full my-1">{{ $prevPostInTerm->title }}</span>
+                                </a>
+                            @endif
+                        </div>
+                        <div class="flex items-center">
+                            <div class="flex-col h-[calc(80%)] w-[1px] bg-gray-400"></div>
+                        </div>
+                        <div class="flex text-blue-800 hover:text-blue-500 text-end">
+                            @if(!empty($nextPostInTerm))
+                                <a href="{{ url($nextPostInTerm->name) }}" target="_self" class="w-full">
+                                    <span class="inline-block w-full my-1">Következő <i class="mdi mdi-arrow-right-thin"></i></span>
+                                    <span class="inline-block w-full my-1">{{ $nextPostInTerm->title }}</span>
+                                </a>
+                            @endif
+                        </div>
                     </div>
                 </div>
 
                 <!-- Nem kategória alapú navigáció -->
                 <div
-                    class="w-full p-2 grid grid-cols-[1fr_auto_1fr] gap-2 x-cloak overflow-hidden"
-                    x-show.immediate="!isCategoryFilter"
+                    class="w-full p-2"
+                    x-show="!isCategoryFilter"
                     x-transition:enter="transition ease-out duration-600"
                     x-transition:enter-start="opacity-0 max-h-0"
                     x-transition:enter-end="opacity-100 max-h-40"
                     x-transition:leave="transition ease-in duration-600"
                     x-transition:leave-start="opacity-100 max-h-40"
                     x-transition:leave-end="opacity-0 max-h-0"
+                    x-cloak
                 >
-                    <div class="flex text-blue-800 hover:text-blue-500 text-start">
-                        @if(!empty($prevPost))
-                            <a href="{{ url($prevPost->name) }}" target="_self" class="w-full">
-                                <span class="inline-block w-full my-1"><i class="mdi mdi-arrow-left-thin"></i> Előző</span>
-                                <span class="inline-block w-full my-1">{{ $prevPost->title }}</span>
-                            </a>
-                        @endif
-                    </div>
-                    <div class="flex items-center">
-                        <div class="flex-col h-[calc(80%)] w-[1px] bg-gray-400"></div>
-                    </div>
-                    <div class="flex text-blue-800 hover:text-blue-500 text-end">
-                        @if(!empty($nextPost))
-                            <a href="{{ url($nextPost->name) }}" target="_self" class="w-full">
-                                <span class="inline-block w-full my-1">Következő <i class="mdi mdi-arrow-right-thin"></i></span>
-                                <span class="inline-block w-full my-1">{{ $nextPost->title }}</span>
-                            </a>
-                        @endif
+                    <div class="grid grid-cols-[1fr_auto_1fr] gap-2 overflow-hidden">
+                        <div class="flex text-blue-800 hover:text-blue-500 text-start">
+                            @if(!empty($prevPost))
+                                <a href="{{ url($prevPost->name) }}" target="_self" class="w-full">
+                                    <span class="inline-block w-full my-1"><i class="mdi mdi-arrow-left-thin"></i> Előző</span>
+                                    <span class="inline-block w-full my-1">{{ $prevPost->title }}</span>
+                                </a>
+                            @endif
+                        </div>
+                        <div class="flex items-center">
+                            <div class="flex-col h-[calc(80%)] w-[1px] bg-gray-400"></div>
+                        </div>
+                        <div class="flex text-blue-800 hover:text-blue-500 text-end">
+                            @if(!empty($nextPost))
+                                <a href="{{ url($nextPost->name) }}" target="_self" class="w-full">
+                                    <span class="inline-block w-full my-1">Következő <i class="mdi mdi-arrow-right-thin"></i></span>
+                                    <span class="inline-block w-full my-1">{{ $nextPost->title }}</span>
+                                </a>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
@@ -164,9 +169,11 @@
                 return {
                     isCategoryFilter: true,
                     init() {
+
                         let val = Cookies.get('PrevNextPostCategoryFilter');
-                        console.log("InitVal: " + val);
+                        console.log("isCategoryFilter: " + this.isCategoryFilter);
                         this.isCategoryFilter = val !== 'false'; // ha nincs: true
+
 
                         this.$watch('isCategoryFilter', (val) => {
                             console.log("CookieSetVal: " + val);
