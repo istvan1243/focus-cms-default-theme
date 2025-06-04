@@ -30,8 +30,23 @@ h6 {
     @apply text-base font-semibold mt-2 mb-2;
 }
 
+
 p {
-    @apply text-base leading-relaxed mb-4;
+    @apply !inline-block !w-full leading-relaxed !my-2 !text-base;
+}
+
+a,
+a:visited,
+a:active {
+    @apply text-red-600 cursor-pointer;
+}
+
+a:hover {
+    @apply text-red-500 scale-105 inline-block border border-gray-200 rounded mx-1 shadow-lg px-2;
+}
+
+blockquote {
+    @apply !block !relative !border-l-4 !border-gray-500 !pl-4 !py-3 !my-4 !ml-1;
 }
 
 ul {
@@ -153,13 +168,7 @@ p {
     @apply bg-blue-900 text-white p-10;
 }
 
-p {
-    @apply !inline-block !w-full !leading-[1.2] !my-2 !text-base;
-}
 
-blockquote {
-    @apply !block !relative !border-l-4 !border-gray-500 !pl-4 !py-3 !my-4 !ml-1;
-}
 
 /* resources/css/app.css */
 .pswp {

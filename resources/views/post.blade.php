@@ -169,11 +169,9 @@
                 return {
                     isCategoryFilter: true,
                     init() {
-
                         let val = Cookies.get('PrevNextPostCategoryFilter');
                         console.log("isCategoryFilter: " + this.isCategoryFilter);
                         this.isCategoryFilter = val !== 'false'; // ha nincs: true
-
 
                         this.$watch('isCategoryFilter', (val) => {
                             console.log("CookieSetVal: " + val);
