@@ -39,7 +39,7 @@
         <script defer src="{{ asset('assets/prism.js/prism.js') }}"></script>
 
         @if( $viteIsActive == false)
-            <link rel="preload" as="style" href="{{ asset($theme_vite_data['css']) }}" onload="this.rel='stylesheet'">
+            <link rel="stylesheet" href="{{ asset($theme_vite_data['css']) }}">
             <script type="module" src="{{ asset($theme_vite_data['js']) }}"></script>
         @else
             @vite($viteAssets)
