@@ -10,7 +10,7 @@
         </div>
     @endif
     <div class="mb-0 py-12 font-semibold bg-slate-100 text-black w-full flex justify-items-center">
-        <h1 class="inline-block mx-auto text-3xl">{{ $category->title }}</h1>
+        <h1 class="inline-block text-center mx-auto text-3xl">{{ $category->title }}</h1>
     </div>
     @if(!empty($description))
         <div class="mb-10 p-6 w-full border-4 border-solid border-gray-100">

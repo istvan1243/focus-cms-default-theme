@@ -1,6 +1,6 @@
 {
   "Themes/FocusDefaultTheme/resources/css/theme.css": {
-    "file": "css/theme-D5a-hgI3.css",
+    "file": "css/theme-Djfo529j.css",
     "src": "Themes/FocusDefaultTheme/resources/css/theme.css",
     "isEntry": true
   },
@@ -46,7 +46,7 @@
     "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.woff2"
   },
   "resources/css/app.css": {
-    "file": "css/app-Bs12MGPQ.css",
+    "file": "css/app-BraUM3EP.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -56,7 +56,7 @@
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-Dgb5-c04.js",
+    "file": "assets/app-BmEsYayF.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
