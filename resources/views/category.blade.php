@@ -19,7 +19,7 @@
     @endif
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6">
-        @foreach($category->posts()->where('status', 'published')->get() as $post)
+        @foreach($posts as $post)
             <div class="p-2">
                 <p class="text-sm text-gray-400">{{ $category->title }}</p>
                 <p class="mt-1 mb-0 text-black text-2xl font-semibold">
@@ -36,5 +36,9 @@
                 </p>
             </div>
         @endforeach
+    </div>
+
+    <div class="w-full p-6">
+        {{ $posts->links() }}
     </div>
 </x-public-default>
